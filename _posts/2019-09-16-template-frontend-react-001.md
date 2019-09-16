@@ -1,47 +1,25 @@
 ---
-title: React Frontend Template ver.1
+title: React Frontend Template
 teaser: React-Redux, Babel, Webpack 기술을 이용한 Frontend 템플릿
 category: frontend
-tags: [react, redux, babel, webpack]
+tags: [react, template]
 ---
 
-Sed tempus nulla justo aliquam urna. Nulla nec ex in mauris euismod consectetur et vel felis. Curabitur vel hendrerit mauris. Nulla tincidunt massa a tempus commodo. In tempor tristique lectus, vel venenatis ipsum pharetra eu. Nam ac odio congue, dapibus sapien eu, pharetra nisi.
-
-Nullam sagittis mi ut purus porta convallis. Maecenas nec orci vel urna ullamcorper varius ut a sem. Nulla ultricies at odio id gravida. Sed ac volutpat sapien, quis dignissim nisi. Sed id aliquet sem. Fusce aliquet hendrerit dui, eget egestas risus molestie eu. Vestibulum lobortis pretium magna sit amet aliquam.
-
-`Mauris` congue, purus eu cursus finibus
+`Frontend` Template
 ----------------------------------------
 
-Odio dui pharetra arcu, ut porta mauris ante rhoncus sem. Morbi tortor arcu, auctor vel turpis tempor, sagittis fringilla arcu. Sed tincidunt ex eget dictum eleifend. Morbi a pretium odio. Praesent eget lectus vitae nulla posuere convallis lacinia sit amet nunc. Nullam gravida felis eros, vitae suscipit orci sodales sed. In id massa eget odio venenatis porta. Donec vel pretium elit, et dapibus tortor. 
+React를 활용하여 Frontend 서비스를 쉽고 편리하게 개발할 수 있도록 템플릿을 제공하고 있습니다. 각 템플릿의 사용법은 링크로 연결된 Github 에서 확인해주세요.
 
-### Nam euismod semper vehicula
 
-Pellentesque euismod orci quis orci lobortis, et ultricies ex consectetur.[^1] Curabitur sit amet venenatis est, id ullamcorper mauris. Proin a dapibus turpis. Vivamus placerat mauris eget sagittis commodo. Proin consequat, nibh nec ultricies convallis, nulla ex dignissim metus, ut eleifend dolor est id sapien. Nulla ac purus a nibh condimentum porta eget non turpis. Quisque pretium nec urna a tincidunt. Integer dictum dictum dui a laoreet.[^2] Phasellus ut justo id orci imperdiet lobortis id nec felis. Ut dolor risus, imperdiet a laoreet malesuada, aliquet eu massa. Donec sit amet lectus massa.
+### Template 개발사항
 
-~~~
-Curabitur quis
-felis magna
-~~~
-
-Vivamus `mollis`, est eu vehicula venenatis,
-
-~~~
-risus Ligula
-  viverra
-  velit
-in dapibus neque
-~~~
-
-mauris non est. Suspendisse ante dolor, tincidunt eu condimentum sed, porttitor a lectus. Suspendisse potenti. Cras orci erat, consectetur ut bibendum at, scelerisque a ligula. Ut fringilla consequat tortor, eu pharetra urna varius in. Praesent sodales neque nec enim euismod, rhoncus facilisis diam egestas. Fusce blandit nisi non odio pulvinar vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
+최초 버전의 템플릿은 행복성장캠퍼스의 Full version[^1]으로 제작되었습니다. 
+이후 UI Component를 좀더 편리하게 활용할 수 있도록 SemanticUI를 이용한 Skeleton version[^2] 템플릿이 제작되었습니다.
 
 ---
 
 [^1]:
-    Nam euismod semper vehicula. Pellentesque euismod orci quis orci lobortis, et ultricies ex consectetur. Curabitur sit amet venenatis est, id ullamcorper mauris. Proin a dapibus turpis. Vivamus placerat mauris eget sagittis commodo. Proin consequat, nibh nec ultricies convallis, nulla ex dignissim metus, ut eleifend dolor est id sapien. Nulla ac purus a nibh condimentum porta eget non turpis. Quisque pretium nec urna a tincidunt. Integer dictum dictum dui a laoreet. Phasellus ut justo id orci imperdiet lobortis id nec felis. Ut dolor risus, imperdiet a laoreet malesuada, aliquet eu massa. Donec sit amet lectus massa. 
-
-    Curabitur quis felis magna. Vivamus mollis, est eu vehicula venenatis, risus ligula viverra velit, in dapibus neque mauris non est. 
+	[Full Version 바로가기][https://github.com/hitechinfo/template_frontend_react_001]
 
 [^2]:
-    [Suspendisse ante dolor][sad], tincidunt eu condimentum sed, porttitor a lectus.
-
-[sad]: https://jekyllrb.com/
+    [Skeleton Version 바로가기][https://github.com/hitechinfo/template_frontend_react_002]
