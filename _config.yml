@@ -34,13 +34,13 @@ nav_menu:
 
 # Objects listed here will appear on the /projects.html page.
 projects:
-  - title: React Template (행복성장캠퍼스 ver.)
+  - title: React Template (Full ver.)
     teaser: React-Redux, Babel, Webpack 기술을 이용한 Frontend 템플릿
     url: https://github.com/hitechinfo/template_frontend_react_001
     role: Developer
     category: Frontend
-  - title: React Template (SemanticUI ver.)
-    teaser: SemanticUI Framework를 이용한 Skeleton Frontend 템플릿
+  - title: React Template (Skeleton ver.)
+    teaser: SemanticUI Framework를 이용한 Frontend 템플릿
     url: https://github.com/hitechinfo/template_frontend_react_002
     role: Developer
     category: Frontend
