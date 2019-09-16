@@ -44,6 +44,16 @@ projects:
     url: https://github.com/hitechinfo/template_frontend_react_002
     role: Developer
     category: Frontend
+  - title: Node.js Template (Full ver.)
+    teaser: Node.js, Express, Sequelize 기술을 이용한 Backend 템플릿
+    url: https://github.com/hitechinfo/template_backend_node_001
+    role: Developer
+    category: Backend
+  - title: Node.js Template (Skeleton ver.)
+    teaser: Node.js, Express, Sequelize 기술을 이용한 Backend 템플릿
+    url: https://github.com/hitechinfo/template_backend_node_002
+    role: Developer
+    category: Backend 
 
 #################
 # Site Settings #
