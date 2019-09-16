@@ -2,44 +2,43 @@
 layout: default
 ---
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-<header class="post-header">
-<h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+{% capture pretty_date %}
+  {% assign day = page.date | date: "%-d"  %}
+  {{ page.date | date: "%B" }}
+  {% case day %}{% when '1' or '21' or '31' %}{{ day }}st{% when '2' or '22' %}{{ day }}nd{% when '3' or '23' %}{{ day }}rd{% else %}{{ day }}th{% endcase %}{{ page.date | date: ", %Y" }}
+{% endcapture %}
 
-   <p class="post-metadata">
-   <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-       <i class="fa fa-calendar" aria-hidden="true"></i> {{ page.date | date: "%b %-d, %Y" }}
-    </time>
-    
-    {% if page.author %}  &nbsp;&nbsp; 
-    <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><i class="fa fa-user" aria-hidden="true"></i> {{ page.author }}</span></span>{% endif %}
+<main class="post" role="main">
+  <div class="post__head">
+    <h1 class="post__title"> {{ page.title }} </h1>
+    <time class="post__date" datetime="{{ page.date | date_to_xmlschema }}"> {{ pretty_date }} </time>
+    <div class="post__labels">
+    {% if page.category %} <a href="{{ site.baseurl }}/category/{{ page.category }}" class="post__category">{{ page.category }}</a>{% endif %}
+    {% if page.tags %}{% for tag in page.tags %} <a href="{{ site.baseurl }}/tag/{{ tag }}" class="post__tag">{{ tag }}</a>{% endfor %}{% endif %}
+    </div>
+  </div>
+  <div class="post__body">
+    {{ content }}
+  </div>
+</main>
 
-{% if page.categories %}  &nbsp;&nbsp; 
-   <span><i class="fa fa-tag" aria-hidden="true"></i> {% assign tags = page.categories %}{% for tag in tags %}{{tag}}{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}</span>
+{% comment %}
+{% endcomment %}
+
+{% if page.reddit_post %}
+  <section class="comments">
+    {% if page.featured_comments %}
+      {% assign call_to_action = "Join the Discussion" %}
+
+      <h2>Featured Comments</h2>
+      {% for comment in page.featured_comments %}
+      <div class="reddit-embed" data-embed-media="www.redditmedia.com" data-embed-parent="{% if comment.context %}true{% else %}false{% endif %}" data-embed-live="{% if comment.freeze %}false{% else %}true{% endif %}"><a href="{{ comment.url }}"></a></div>
+      {% endfor %}
+
+      <script async src="https://www.redditstatic.com/comment-embed.js"></script>
+    {% else %}
+      {% assign call_to_action = "Comments" %}
+    {% endif %}
+    <a href="{{ page.reddit_post }}" target="_blank" class="comments__cta">{{ call_to_action }}</a>
+  </section>
 {% endif %}
-
-
-{% assign words = content | strip_html | number_of_words %}
- &nbsp;&nbsp; 
-   <span><i class="fa fa-clock-o" aria-hidden="true"></i> 
-{% if words < 360 %}
- 1 min
-{% else %}
-  {{ words | divided_by:180 }} mins 
-{% endif %}
-</span>
-</p>
-
-</header>
-<div class="post-content" itemprop="articleBody">{{ content }}</div>
-
-
-</article>
-{% include share.html %}
-
-
-{% if site.disqus-shortname %}
-{% include disqus.html %}
-{% endif %}
-<br />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">

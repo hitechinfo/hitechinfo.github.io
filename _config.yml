@@ -1,60 +1,87 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+#######################
+# Theme Customization #
+#######################
 
-# Site settings
-title: Ashwathama
-description: > # this means to ignore newlines until "baseurl:"
- Ashwathama is a minimal website with an app like design. It also features card layouts for website elements.
-baseurl: "/ashwath" # the subpath of your site, e.g. /blog
-url: "http://webjeda.com/ashwath/"
-permalink: :title/
-full-url: "http://webjeda.com/ashwathama/" # the base hostname & protocol for your site
+title: HitechInfo                           # used in <title> tag & site header
+author: HitechInfo                          # used in a <meta> tag & /feed.xml
+description: >                              # used in a <meta> tag & /feed.xml
+  Welcome!
+slogan: Catalog                           # used in site header, beside title
+avatar: /i/bulb.png                  # used as portrait in site header
+banner: /i/cubes.jpg                      # used as background in site header
+url: https://hitechinfo.github.io/          # used by plugins to generate feed.xml and sitemap.xml
+baseurl: ''                                 # prepended to all absolute filepaths
+repo: https://github.com/hitechinfo/        # used in footer
 
+# Objects listed here will appear in the main nav menu.
+# Exceeding four items may cause problems on the desktop (>900px wide) layout.
+nav_menu:
+  - name: Posts
+    url: /
+    icon: /i/icons.svg#posts # icons should be 24x24 px.
+  - name: Projects
+    url: /projects
+    icon: /i/icons.svg#portfolio
+  - name: GitHub
+    url: https://github.com/hitechinfo/
+    icon: /i/icons.svg#github
+    outbound: true      # this key sets a link to open in a new window.
+  - name: Contact
+    scheme: mailto      # these keys enable email obfuscation.
+    handle: hello       # you know, to protect you from bots. (handle and domain
+    domain: github.com  # are separated in case bots crawl GitHub repos, too.)
+    icon: /i/icons.svg#email
 
-# CSS
+# Objects listed here will appear on the /projects.html page.
+projects:
+  - title: Solana
+    teaser: A responsive blog template written in Sass and vanilla JavaScript.
+    url: https://github.com/rlue/jekyll-solana
+    role: Creator
+    category: Frontend Dev
+  - title: Cortana
+    teaser: A talking robot. Now available on Google Play?
+    url: https://play.google.com/store/apps/details?id=com.microsoft.cortana
+    role: Core Team
+    category: NLP
+  - title: Rihanna
+    teaser: Possibly another robot. Also available on Google Play.
+    url: https://play.google.com/store/music/artist/Rihanna?id=Arcw2m2ih45qntv3fufub25tyhu
+    role: Contributor
+    category: Algorithmic Composition
+
+#################
+# Site Settings #
+#################
+
+incremental: true
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - TODO.md
+
+permalink: /:collection/:path
+
+collections:
+  category: { output: true }
+  tag:      { output: true }
+
+defaults:
+  - scope:  { type:   posts    }
+    values: { layout: post     }
+  - scope:  { type:   tag      }
+    values: { layout: listing  }
+  - scope:  { type:   category }
+    values: { layout: listing  }
+
 sass:
-  style: compressed
+  sass_dir: _assets/css
 
-# Comments - Go to Disqus.com > sign up > get the short-name > insert it here
-disqus-shortname: 
-
-# Tracker
-analytics: UA-83979019-1
-
-# Form Settings
-#
-# Contact form can be enabled by getting an API key from https://getsimpleform.com/
-simpleform-token: b6d4be9b039b666b3311e1ddcbfb577c
-
-# Redirect users after submitting the form
-redirect-to: http://blog.webjeda.com/thank-you/
-
-# Site version
-version: 0.9
-
-
-# Post date background - This will change the background of the post date and tag ribbon according to the theme. If set to no default green background will be used. If yes then the theme color scheme is used.
-
-change-date-bg: no
-
-
-# Build settings
-markdown: kramdown
-
-include: [_pages] # Includes files inside _pages directory [Do not remove this]
-
-author:
-  name: Ashwathama
-  image: ashwat.jpg # The author image will be shown on the header. Place this image in /images/ folder.
-  about: Ashwathama is a sage who wrote Mahabharatha. He is the son of Drona. He fought on the Kaurava side against the Pandavas. He put up a pretty good fight with mighty Bhima.
-  twitter: webjeda  # https://twitter.com/ is automatically added
-  facebook: webjeda # https://facebook.com/ is automatically added
-  email: hello@webjeda.com # mailto: is automatically added
-  
-gems: 
-  - jekyll-seo-tag
+plugins:
   - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+
+paginate: 10
