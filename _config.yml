@@ -1,92 +1,35 @@
-#######################
-# Theme Customization #
-#######################
+title: Catalog # your site title
+author: GitHub User
+email: hitechinfo2000@gmail.com # email for form submission, you also have to change it in _js/scripts.js
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://hitechinfo.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
-title: HitechInfo                           # used in <title> tag & site header
-author: HitechInfo                          # used in a <meta> tag & /feed.xml
-description: >                              # used in a <meta> tag & /feed.xml
-  Welcome!
-slogan: Catalog                           # used in site header, beside title
-avatar: /i/bulb.png                  # used as portrait in site header
-banner: /i/cubes.jpg                      # used as background in site header
-url: https://hitechinfo.github.io/          # used by plugins to generate feed.xml and sitemap.xml
-baseurl: ''                                 # prepended to all absolute filepaths
-repo: https://github.com/hitechinfo/        # used in footer
-
-# Objects listed here will appear in the main nav menu.
-# Exceeding four items may cause problems on the desktop (>900px wide) layout.
-nav_menu:
-  - name: Posts
-    url: /
-    icon: /i/icons.svg#posts # icons should be 24x24 px.
-  - name: Projects
-    url: /projects
-    icon: /i/icons.svg#portfolio
-  - name: GitHub
-    url: https://github.com/hitechinfo/
-    icon: /i/icons.svg#github
-    outbound: true      # this key sets a link to open in a new window.
-  - name: Contact
-    scheme: mailto      # these keys enable email obfuscation.
-    handle: hello       # you know, to protect you from bots. (handle and domain
-    domain: github.com  # are separated in case bots crawl GitHub repos, too.)
-    icon: /i/icons.svg#email
-
-# Objects listed here will appear on the /projects.html page.
-projects:
-  - title: React Template (Full ver.)
-    teaser: React-Redux, Babel, Webpack 기술을 이용한 Frontend 템플릿
-    url: https://github.com/hitechinfo/template_frontend_react_001
-    role: Developer
-    category: Frontend
-  - title: React Template (Skeleton ver.)
-    teaser: SemanticUI Framework를 이용한 Frontend 템플릿
-    url: https://github.com/hitechinfo/template_frontend_react_002
-    role: Developer
-    category: Frontend
-  - title: Node.js Template (Full ver.)
-    teaser: Node.js, Express, Sequelize 기술을 이용한 Backend 템플릿
-    url: https://github.com/hitechinfo/template_backend_node_001
-    role: Developer
-    category: Backend
-  - title: Node.js Template (Skeleton ver.)
-    teaser: Node.js, Express, Sequelize 기술을 이용한 Backend 템플릿
-    url: https://github.com/hitechinfo/template_backend_node_002
-    role: Developer
-    category: Backend 
-
-#################
-# Site Settings #
-#################
-
-incremental: true
+# Build settings
+markdown: kramdown
+highlighter: rouge # or pygments or null
+theme: jekyll-sleek
 exclude:
+  - README.md
+  - node_modules
+  - package.json
+  - package-lock.json
   - Gemfile
   - Gemfile.lock
-  - LICENSE
-  - README.md
-  - TODO.md
+  - vendor
+  - npm-debug.log
+  - gulpfile.js
+  - sleek.png
 
-permalink: /:collection/:path
+include: ['_pages']
+permalink: /:title/
 
-collections:
-  category: { output: true }
-  tag:      { output: true }
-
-defaults:
-  - scope:  { type:   posts    }
-    values: { layout: post     }
-  - scope:  { type:   tag      }
-    values: { layout: listing  }
-  - scope:  { type:   category }
-    values: { layout: listing  }
-
-sass:
-  sass_dir: _assets/css
+compress_html:
+  clippings: all
 
 plugins:
-  - jekyll-paginate
-  - jekyll-feed
   - jekyll-sitemap
-
-paginate: 10
+  - jekyll-seo-tag
