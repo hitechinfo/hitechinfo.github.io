@@ -2,7 +2,7 @@
 layout: post
 title: Getting Started
 summary: 행복성장플랫폼 가이드는 처음 시작하실 때 참고하시면 좋을 만한 내용을 소개하고 있습니다.
-featured-img: skhappycampus
+featured-img: business
 ---
 
 ## 행복성장플랫폼 가이드
