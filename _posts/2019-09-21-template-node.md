@@ -8,7 +8,7 @@ image: "assets/img/pexels/node.jpg"
 excerpt_separator: <!--more-->
 ---
 
-## Node.js Template
+## [Node.js Template]
 
 Node.js Template을 활용하여 Cloud Native Application의 Backend 서비스를 빠르게 구현해보세요.
 

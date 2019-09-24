@@ -8,7 +8,7 @@ image: "assets/img/pexels/springboot.jpg"
 excerpt_separator: <!--more-->
 ---
 
-## Spring Boot Template
+## [Spring Boot Template]
 
 Spring Boot Template을 활용하여 Backend 서비스를 편리하게 개발해보세요.
 

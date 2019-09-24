@@ -8,7 +8,7 @@ image: "assets/img/pexels/react.jpg"
 excerpt_separator: <!--more-->
 ---
 
-## React Template
+## [React Template]
 React Template을 활용하여 Cloud Native Application의 Frontend 서비스를 빠르게 구현해보세요.
 
 <!--more-->

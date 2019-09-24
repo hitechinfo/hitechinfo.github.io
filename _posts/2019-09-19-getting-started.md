@@ -8,7 +8,7 @@ image: "assets/img/pexels/start.jpg"
 excerpt_separator: <!--more-->
 ---
 
-## 행복성장플랫폼 가이드
+## [행복성장플랫폼 가이드]
 행복성장플랫폼 가이드는 처음 시작하실 때 참고하시면 좋을 만한 내용을 소개하고 있습니다.
 
 <!--more-->
