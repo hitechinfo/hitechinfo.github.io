@@ -1,106 +1,56 @@
 ---
-layout: compress
+layout: default
 ---
-<html lang="{{ page.lang | default: site.lang | default: "en_US" }}">
+{% include share_thumbnail.html page=page %}
 
-{% include head.html %}
+<article {% if page.feature-img or page.color %}class="feature-image"{% endif %}>
+  <header id="main" style="">
+    {% unless page.hide_title %}
+      <h1 id="{{ page.title | cgi_escape }}" class="title">{{ page.title }}</h1>
+      {% include post_info.html post=page %}
+    {% endunless %}
+  </header>
+  <section class="post-content">
+  {% if page.bootstrap %}
+    <div class="bootstrap-iso">
+    {% endif %}
+      {{ content }}
+    {% if page.bootstrap %}
+    </div>
+  {% endif %}
+  </section>
 
-<body class="site">
+   <!-- Tag list -->
+  {% capture tag_list %}{{ page.tags | join: "|"}}{% endcapture %}
+  {% include tags_list.html tags=tag_list %}
 
-{% if site.google_tag_manager %}
+</article>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_tag_manager }}"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
+<!-- Disqus -->
+{% if site.theme_settings.disqus_shortname %}
+<div class="comments">
+  {% include disqus.html %}
+</div>
 {% endif %}
 
-{% include header.html %}
+<!-- Post navigation -->
+{% if site.theme_settings.post_navigation %}
+  {% include post_nav.html %}
+{% endif %}
 
-  {% if page.featured-img %}
+<!-- To change color of links in the page -->
+<style>
+  {% if page.color %}
+    .feature-image a { color: {{ page.color }} !important; }
+    div#post-nav a { color: {{ page.color }} !important; }
+    footer a { color: {{ page.color }} !important; }
+    .site-header nav a:hover {  color: {{ page.color }} !important; }
+    header#main { background-color: {{ page.color }} !important; }
+  {% endif %}
 
-  <div class="hero lazyload" data-bg="{{site.url}}/assets/img/posts/{{page.featured-img}}.jpg">
-    {% else %}
-    <div class="hero dark-bg">
-      {% endif %}
-      <div class="hero__wrap">
-        <h1 class="hero__title">{{ page.title }}</h1>
-        <p class="hero__meta">
-            <span>
-              <time>{{ page.date | date_to_string }}</time>&nbsp;
-            </span>
-          <span>
-              {% assign words = content | number_of_words %}
-                {% if words < 360 %}
-                  1 min
-                {% else %}
-                  {{ words | divided_by:180 }} mins
-              {% endif %} read
-              &nbsp;
-          </span>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <main class="site__content">
-    <div class="container">
-      <article class="post-content" itemprop="articleBody">
-
-        {{ content }}
-
-      </article>
-      <div class="post-content controls__inner">
-        <div class="controls__item prev">
-          {% if page.previous.url %}
-
-          <span>Previous</span>
-          <a href="{{page.previous.url | relative_url }}">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="6" height="11">
-                    <path fill="fillColor" d="M5.647 1.718c.37-.434.323-1.09-.106-1.465A1.016 1.016 0 0 0 4.095.36L.25 4.875a1.05 1.05 0 0 0 .017 1.378l3.95 4.407c.38.424 1.03.456 1.448.07a1.05 1.05 0 0 0 .07-1.468l-3.34-3.725 3.253-3.819z"/>
-                  </svg>
-              </span>
-            {{page.previous.title | strip_html | truncate: 30}}
-          </a>
-          {% endif %}
-        </div>
-
-        <div class="controls__item next">
-          {% if page.next.url %}
-          <span>Next</span>
-          <a href="{{page.next.url | relative_url }}">
-            {{page.next.title | strip_html | truncate: 30}}
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="11">
-                  <path fill="#fillColor" d="M.353 9.282c-.37.434-.323 1.09.106 1.465a1.016 1.016 0 0 0 1.446-.107L5.75 6.125a1.05 1.05 0 0 0-.017-1.378L1.784.34A1.015 1.015 0 0 0 .336.27a1.05 1.05 0 0 0-.07 1.468l3.34 3.725L.353 9.282z"/>
-                </svg>
-              </span>
-          </a>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-
-    {% if site.disqus.shortname %}
-
-    <div class="comments">
-      <div class="container">
-        <div class="post-content">
-
-          {% include disqus.html %}
-
-        </div>
-      </div>
-    </div>
-
-    {% endif %}
-
-  </main>
-
-  {% include footer.html %}
-
-</body>
-
-</html>
+  header#main {
+    background-repeat:no-repeat;
+    {% if page.feature-img %} background-image: url('{{ page.feature-img | relative_url }}');
+    {% elsif page.color %}background-image: url('{{ site.theme_settings.color_image | relative_url }}');  {% endif %}
+  }
+</style>

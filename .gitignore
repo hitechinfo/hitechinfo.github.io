@@ -1,68 +1,30 @@
-*.gem
-.bundle
-.sass-cache
-_site
-_img
-Gemfile.lock
-/.idea/
-npm-debug.log
+# Idea files
+.idea/*
 
-
-# OS Generated files #
-######################
-*.DS_Store
+# Mac files
 .DS_Store
-.DS_store?
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
 
-# SASS #
-########
-.sass-cache/
+# Byte-compiled / optimized / DLL files
+*.manifest
+*.spec
+
+# Jekyll dev or build files
+_site/*
+_development_tool/*
+.sass-cache/*
 *.css.map
+*.scssc
+.bundle/*
 
-# Jekyll #
-##########
-_site/
-.jekyll-metadata
+# Theme Gem files
+Gemfile.lock
+*.gem
+.gems
+jekyll-theme-type-on-strap.gemspec
 
-# Ruby #
-########
-*.rbc
-/.config
-/coverage/
-/InstalledFiles
-/pkg/
-/spec/reports/
-/spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
-
-# Used by dotenv library to load environment variables.
-# .env
-
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
-*.bridgesupport
-build-iPhoneOS/
-build-iPhoneSimulator/
-
-## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
-
-# Folders to ignore #
-#####################
-bower_components
-node_modules
-
-_algolia_api_key
+# Node js files
+**/node_modules/*
+*-test.md
+*copy.md
+.jekyll-cache/*
+test/*
